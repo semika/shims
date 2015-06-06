@@ -1,2 +1,7 @@
 # shims
-SHIMS Sprint + Struts + Hibernate
+SHIMS This is a sample multimodule project developed using a maven.
+
+I am Semika Siriwardana,
+Technical Lead,
+ShipXpress Inc,
+USA
