@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>shims</artifactId>
+    <groupId>com.semika</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>shims-web</artifactId>
+  <packaging>war</packaging>
+  <name>shims-web Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    
+    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>3.8.1</version>
+	      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+	   <groupId>com.semika</groupId>
+	   <artifactId>shims-service</artifactId>
+	   <version>${project.version}</version>
+    </dependency>
+    
+    <dependency>
+	   <groupId>org.springframework</groupId>
+	   <artifactId>spring-web</artifactId>
+    </dependency>
+    
+    <dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+	</dependency>
+    
+    <dependency>
+		<groupId>commons-dbcp</groupId>
+		<artifactId>commons-dbcp</artifactId>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.struts</groupId>
+		<artifactId>struts2-core</artifactId>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.struts</groupId>
+		<artifactId>struts2-convention-plugin</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.struts</groupId>
+		<artifactId>struts2-spring-plugin</artifactId>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+		<version>1.5.6</version>
+	</dependency>
+    
+  </dependencies>
+  <build>
+    <finalName>shims-web</finalName>
+    <plugins>
+        <plugin>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.7</version>
+            <executions>
+                <execution>
+                    <phase>install</phase>
+                    <configuration>
+                          <target>
+                              <delete file="${env.CATALINA_HOME}/webapps/shims-web.war" failonerror="false" />
+                              <delete dir="${env.CATALINA_HOME}/webapps/shims-web" failonerror="false" />
+                              <copy file="${project.build.directory}/shims-web.war" todir="${env.CATALINA_HOME}/webapps"/>
+                          </target>
+                    </configuration>
+                    <goals>
+                         <goal>run</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+  </build>
+</project>
