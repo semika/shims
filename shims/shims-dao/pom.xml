@@ -5,7 +5,7 @@
   <parent>
     <artifactId>shims</artifactId>
     <groupId>com.semika</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>fsdfsdf
   </parent>
   <artifactId>shims-dao</artifactId>
   <name>shims-dao</name>
